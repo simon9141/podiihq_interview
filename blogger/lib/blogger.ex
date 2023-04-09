@@ -17,6 +17,10 @@ defmodule Blogger do
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         IO.puts("Unexpected response code: #{404}")
         {:error, "Blog not found"}
+
+      {:error, reason} ->
+        IO.puts("Failed to fetch blog post: #{"Connection unsuccessful"}")
+    
     end
   end
 
