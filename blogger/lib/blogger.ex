@@ -14,12 +14,12 @@ defmodule Blogger do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         IO.puts("Successfully fetched blog post!")
         {:ok, body}
-      {:ok, %HTTPoison.Response{status_code: 404}} ->
-        IO.puts("Unexpected response code: #{404}")
+      {:ok, %HTTPoison.Response{status_code: status_code}} ->
+        IO.puts("Unexpected response code: #{status_code}")
         {:error, "Blog not found"}
 
       {:error, reason} ->
-        IO.puts("Failed to fetch blog post: #{"Connection unsuccessful"}")
+        IO.puts("Failed to fetch blog post: #{reason}")
     
     end
   end
